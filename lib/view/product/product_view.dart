@@ -42,7 +42,7 @@ class ProductView extends StatelessWidget {
                     size: 23, color: Theme.of(context).hintColor),
                 suffixIcon: const Padding(
                   padding: EdgeInsets.only(right: 10),
-                  child: KButton(icon: Icons.equalizer),
+                  child: KButton(icon: Icons.tune),
                 ),
               ),
             ),

@@ -27,6 +27,81 @@ class AddProduct extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                height: 80,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => index == 0
+                      ? OutlinedButton(
+                          onPressed: () {},
+                          style: OutlinedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16))),
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 18, horizontal: 8),
+                            child: Icon(
+                              Icons.add,
+                              color: AppColors.secondary,
+                              size: 35,
+                            ),
+                          ),
+                        )
+                      : Stack(
+                          children: [
+                            Image.asset('assets/placeholder.png'),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: const SizedBox.square(
+                                  dimension: 80,
+                                  child: ColoredBox(color: Colors.black38)),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 4),
+                                child: SizedBox(
+                                  width: 80,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: const ColoredBox(
+                                          color: Colors.white,
+                                          child: SizedBox(
+                                              height: 30,
+                                              width: 30,
+                                              child: Icon(
+                                                  Icons.zoom_in_map_rounded,
+                                                  color: Colors.black45)),
+                                        ),
+                                      ),
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: const ColoredBox(
+                                          color: Colors.white,
+                                          child: SizedBox(
+                                              height: 30,
+                                              width: 30,
+                                              child: Icon(Icons.delete,
+                                                  color: Colors.black45)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                  separatorBuilder: (context, index) => KWidgets.kWidth,
+                  itemCount: 3,
+                ),
+              ),
+              KWidgets.kHeight,
+              KWidgets.kHeight,
               const KTextField(title: 'Product Title'),
               KWidgets.kHeight,
               const KTextField(title: 'Select Categories'),
